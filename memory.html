@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" data-page="memory">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Memories 📸</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page bg hearts">
+  <div class="transition-cover" aria-hidden="true"></div>
+  <main class="container">
+    <section class="card glass">
+      <header class="center">
+        <h1 class="title script">Our little time machine</h1>
+        <p class="subtitle">A carousel of moments that made us <span class="script">us</span>.</p>
+      </header>
+
+      <div class="slideshow" id="slideshow">
+        <figure class="slide active" data-caption="That first day I knew life was sweeter with you.">
+          <img src="assets/memories/1.jpg" alt="Memory 1" />
+        </figure>
+        <figure class="slide" data-caption="Your smile, my favorite view.">
+          <img src="assets/memories/2.jpg" alt="Memory 2" />
+        </figure>
+        <figure class="slide" data-caption="Two hearts. One rhythm.">
+          <img src="assets/memories/3.jpg" alt="Memory 3" />
+        </figure>
+        <figure class="slide final" data-caption="Today, tomorrow, always — I choose you.">
+          <div class="final-note">
+            <h2 class="script">I love you, always. 💗</h2>
+          </div>
+        </figure>
+      </div>
+
+      <nav class="controls center">
+        <button class="btn" id="prev">◀</button>
+        <button class="btn" id="next">▶</button>
+      </nav>
+      <p class="caption center" id="caption">That first day I knew life was sweeter with you.</p>
+
+      <div class="center mt">
+        <button class="btn primary transition-link" data-next="final.html">One last surprise →</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

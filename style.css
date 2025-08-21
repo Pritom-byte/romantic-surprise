@@ -1,0 +1,89 @@
+:root{
+  --bg1:#fff6fb; --bg2:#fff9ed; --accent:#ff8dc8; --accent2:#9d79ff; --ink:#231c37; --glass:rgba(255,255,255,.55);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink)}
+
+/* Backgrounds */
+.bg{background: radial-gradient(1200px 800px at 10% -10%, var(--bg2) 0, transparent 60%),
+             radial-gradient(1200px 800px at 110% 110%, var(--bg1) 0, transparent 60%),
+             linear-gradient(135deg,var(--bg1),var(--bg2));
+  min-height:100vh; overflow-x:hidden}
+.hearts:before, .hearts:after{content:"";position:fixed;inset:0;pointer-events:none;background-image:
+  radial-gradient(circle at 10% 20%, rgba(255,141,200,.25) 0 7px, transparent 8px),
+  radial-gradient(circle at 80% 30%, rgba(157,121,255,.22) 0 7px, transparent 8px),
+  radial-gradient(circle at 30% 80%, rgba(255,141,200,.18) 0 7px, transparent 8px);
+  background-size:220px 220px;animation:floats 22s linear infinite;mix-blend-mode:multiply}
+.hearts:after{animation-duration:32s;opacity:.6;filter:blur(1px)}
+@keyframes floats{to{background-position:0 220px,0 420px,0 300px}}
+.night{background: radial-gradient(1000px 600px at 50% 0%, #fff3, transparent), linear-gradient(180deg, #0b0a1a, #120f1f 60%, #1a1530)}
+
+/* Layout */
+.container{max-width:980px;margin:auto;padding:64px 20px}
+.center{text-align:center}
+.row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.mt{margin-top:18px}
+
+/* Cards & Glass */
+.card{padding:28px;border-radius:24px;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+.glass{background:var(--glass);backdrop-filter:blur(10px)}
+.footer{position:fixed;left:0;right:0;bottom:0;padding:10px 12px;text-align:center;background:linear-gradient(180deg,transparent,rgba(0,0,0,.05));}
+
+/* Typography */
+.title{font-size:clamp(32px,6vw,60px);margin:0 0 8px;letter-spacing:.5px}
+.script{font-family:Parisienne, cursive;font-weight:400}
+.subtitle{opacity:.9;margin:6px 0 18px}
+.tiny{font-size:.85rem;opacity:.8}
+.highlight{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.subtle{opacity:.85}
+
+/* Buttons */
+.btn{appearance:none;border:none;cursor:pointer;border-radius:999px;padding:12px 18px;font-weight:600;font-size:1rem;background:#fff;box-shadow:0 6px 16px rgba(0,0,0,.08);transition:transform .25s ease, box-shadow .25s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(0,0,0,.12)}
+.btn:active{transform:translateY(0)}
+.btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff}
+.btn.disabled{opacity:.6;pointer-events:none}
+
+/* Transition cover (page in/out) */
+.transition-cover{position:fixed;inset:0;background:radial-gradient(60vmax 60vmax at 50% 50%, #fff 0%, #fff0 60%);opacity:0;pointer-events:none}
+.page-enter .transition-cover{opacity:0}
+.page-exit .transition-cover{opacity:1}
+
+/* Cake */
+.cake-wrap{perspective:900px;transform-style:preserve-3d}
+.cake{position:relative;width:min(380px, 90vw);margin:12px auto;transform:rotateX(8deg)}
+.layer{height:70px;border-radius:16px;margin:0 auto;position:relative;box-shadow:inset 0 -10px 0 rgba(0,0,0,.05)}
+.l1{width:100%; background:#ffc2e0}
+.l2{width:88%; background:#ffd1ea; transform:translateY(-14px)}
+.l3{width:76%; background:#ffe0f2; transform:translateY(-26px)}
+.plate{width:110%; height:18px; background:#fff; margin:0 auto; border-radius:12px; transform:translateY(-20px); box-shadow:0 6px 18px rgba(0,0,0,.12)}
+.candles{position:absolute;top:-58px;left:0;right:0;display:flex;justify-content:center;gap:24px}
+.candle{width:12px;height:46px;background:#fff;border-radius:6px;position:relative;box-shadow:inset 0 -12px #ffd1e8}
+.flame{position:absolute;left:50%;transform:translateX(-50%);top:-20px;width:14px;height:20px;background:radial-gradient(circle at 40% 30%, #fff8, #fff0), linear-gradient(180deg,#ffd36e,#ff8b8b);border-radius:50% 50% 45% 55%; box-shadow:0 0 18px #ffb347,0 0 36px #ff8b8b}
+.candle.out .flame{opacity:0; filter:blur(4px); transition:opacity .5s ease}
+
+/* Slideshow + Ken Burns */
+.slideshow{position:relative;overflow:hidden;border-radius:18px;isolation:isolate}
+.slide{position:absolute;inset:0;opacity:0;transform:scale(1.02);display:grid;place-items:center;background:#fff}
+.slide.active{opacity:1}
+.slide img{width:100%;height:62vh;object-fit:cover;border-radius:12px;animation:kenburns 12s ease-in-out infinite alternate}
+@keyframes kenburns{from{transform:scale(1) translate(0,0)} to{transform:scale(1.08) translate(2%, -2%)} }
+.final{background:linear-gradient(135deg, #ffd1e8, #e3d2ff)}
+.final-note{padding:40px}
+.caption{margin-top:12px;font-style:italic}
+.controls{margin-top:14px}
+
+/* Canvas overlay */
+.overlay-canvas{position:fixed;inset:0;pointer-events:none}
+
+/* Final heart */
+.beating-heart{--s:18vmin; width:var(--s); height:var(--s); position:relative; margin:10px auto 16px; transform:rotate(-45deg); background:linear-gradient(135deg, var(--accent), var(--accent2)); border-radius:12px; box-shadow:0 12px 40px rgba(0,0,0,.25)}
+.beating-heart:before,.beating-heart:after{content:"";position:absolute;width:var(--s);height:var(--s);background:inherit;border-radius:50%}
+.beating-heart:before{left:50%;top:0}
+.beating-heart:after{left:0;top:-50%}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .slide img{animation:none}
+}
