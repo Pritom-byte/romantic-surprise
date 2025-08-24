@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>For My Forever 💖</title>
+  <title>Our Journey Begins 💖</title>
+  <!-- Fonts & Styles -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -11,8 +12,10 @@
   <meta name="theme-color" content="#ff9ecf" />
 </head>
 <body class="page bg hearts">
+  <!-- Optional bg audio (soft) -->
   <audio id="bgm" src="assets/audio/bg.mp3" preload="auto" loop></audio>
 
+  <!-- Page transition overlay -->
   <div class="transition-cover" aria-hidden="true"></div>
 
   <main class="container center">
@@ -22,10 +25,10 @@
       <button class="btn primary transition-link" data-next="cake.html" data-sound="#bgm">Begin our journey →</button>
       <p class="tiny">(Tip: sound on for gentle magic 🎵)</p>
     </header>
-
     <footer class="footer subtle">Crafted with ♥ by <span class="highlight">me</span> for <span class="highlight">you</span></footer>
   </main>
 
+  <!-- GSAP -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
   <script>gsap.registerPlugin(TextPlugin);</script>

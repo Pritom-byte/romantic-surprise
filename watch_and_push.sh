@@ -1,12 +1,19 @@
 #!/bin/bash
-# Watch the current folder for changes
+cd "/Users/skinnyfiend/Document/Pritom's Project/romantic-surprise" || exit
+
+# Debounce time (in seconds)
+DELAY=3
+LAST_RUN=0
+
 fswatch -0 . | while read -d "" event
 do
-    # Check if there are changes
-    if [[ -n $(git status --porcelain) ]]; then
-        git add .
-        git commit -m "Auto update $(date)"
-        git push
-        echo "Changes pushed at $(date)"
+    NOW=$(date +%s)
+    if (( NOW - LAST_RUN > DELAY )); then
+        if [[ -n $(git status --porcelain) ]]; then
+            ./auto_push.sh
+            echo "Changes pushed at $(date)"
+            echo "Changes pushed at $(date)" >> push_log.txt
+        fi
+        LAST_RUN=$NOW
     fi
 done
